@@ -21,10 +21,10 @@ EXE = taskScheduler
 all : $(EXE)
 
 $(EXE) : $(OBJ)
-	$(CC) $(OFLAG) $@ $(LD_FLAG) $^
+	$(CC) $(OFLAG) $@ $^ $(LD_FLAG) 
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) $(OFLAG) $@ $<
+	$(CC) $(CFLAGS) $(OFLAG) $@ $< $(LD_FLAG)
 
 $(SRC) : $(HEADERS)
 	
