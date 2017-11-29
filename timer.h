@@ -23,13 +23,15 @@ struct compareSchedule{
 };
 
 class Timer {
+	static Timer* m_timerInstance;
 	timerTask m_timerTask;
 	vector<std::thread> m_thread_list;
 	mutex m_mutex;
 	std::map<std::string, timerTask> m_mapTaskList;
 	bool runThreads = true;
+	Timer(){}
 public:
-	Timer();
+	static Timer* getTimerInstance();
 	void start();
 	void listAllTasks(); 
 	void start(string taskName); 

@@ -21,7 +21,7 @@ void sendingEmail() {
 }
 
 int main() {
-Timer *timer = new Timer();
+Timer *timer = Timer::getTimerInstance();
 auto now = std::chrono::system_clock::now();
 
 std::string configure("configure");

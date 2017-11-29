@@ -2,7 +2,16 @@
 
 class Timer;
 
-Timer::Timer() {  }
+
+Timer* Timer::m_timerInstance=NULL;
+
+Timer* Timer::getTimerInstance() {
+
+	if (!m_timerInstance) 
+		m_timerInstance = new Timer();
+	return m_timerInstance;
+}
+
 
 void Timer::start() {
 	while(runThreads) {
