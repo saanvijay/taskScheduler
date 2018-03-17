@@ -2,6 +2,7 @@
 #include "timerTask.h"
 #include "timer.h"
 using namespace std;
+using namespace vjp;
 
 void configureProject() {
 	cout << "configure project..." << endl;

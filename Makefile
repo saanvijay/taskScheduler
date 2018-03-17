@@ -1,34 +1,33 @@
-# Makefile to build taskScheduler
-
-CFLAGS = -c -m64 -std=c++11 -fPIC -g
-OFLAG  = -o
-LD_FLAG = -lpthread
-CC = g++
-
-SRC = taskScheduler.cpp \
-	timer.cpp
-
-OBJ = taskScheduler.o \
-	timer.o
-
-HEADERS = timer.h \
-	timerTask.h
-
-EXE = taskScheduler
+include ./makefile.rules
 
 
+EXE  := $(BIN_DIR)/taskScheduler
+SRCS := $(wildcard *.cpp)
+OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS)) 
+
+CFLAGS += $(C++11)
+LIBFLAGS = -lpthread
+
+VPATH := $(OBJ_DIR) $(BIN_DIR)
+
+DEPS := $(OBJS:.o=.d)
+ 
 .PHONY: all
 all : $(EXE)
 
-$(EXE) : $(OBJ)
-	$(CC) $(OFLAG) $@ $^ $(LD_FLAG) 
+$(EXE) : $(OBJS)
+	@echo "--------- Creating $(notdir $@) ---------"
+	mkdir -p ${@D}
+	$(CC) $(OFLAG) $@ $^ $(LIBFLAGS) 
+	@echo "============== DONE ====================="
+	@echo ''
 
-%.o : %.cpp
-	$(CC) $(CFLAGS) $(OFLAG) $@ $< $(LD_FLAG)
 
-$(SRC) : $(HEADERS)
-	
+$(OBJ_DIR)/%.o : %.cpp
+	$(cpp_compile_rule_body)
 
-.PHONY : clean
-clean :
-	rm -rf $(OBJ) $(EXE)
+.PHONY: clean
+clean:
+	rm -rf $(OBJ_DIR) $(BIN_DIR) $(EXE)
+
+-include $(DEPS)

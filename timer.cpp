@@ -1,6 +1,6 @@
 #include "timer.h"
 
-class Timer;
+using namespace vjp;
 
 
 Timer* Timer::m_timerInstance=NULL;
