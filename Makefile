@@ -1,14 +1,16 @@
 include ./makefile.rules
 
 
-EXE  := $(BIN_DIR)/taskScheduler
-SRCS := $(wildcard *.cpp)
+SRCS := timer.cpp \
+	taskScheduler.cpp
 OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS)) 
+EXE  := $(BIN_DIR)/taskScheduler
 
 CFLAGS += $(C++11)
-LIBFLAGS = -lpthread
 
-VPATH := $(OBJ_DIR) $(BIN_DIR)
+VPATH := $(OBJ_DIR) \
+	 $(BIN_DIR) \
+	 src
 
 DEPS := $(OBJS:.o=.d)
  

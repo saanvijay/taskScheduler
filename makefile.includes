@@ -15,6 +15,7 @@ AR_FLAGS := rvs
 AR := ar
 
 LD_FLAGS := -l
+LIBFLAGS := -lpthread
 
 COPY := cp
 COPY_DIR_FLAG := -rf
