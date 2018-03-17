@@ -1,0 +1,28 @@
+####################################################################
+#
+# Makefile include flags, you add all the flags here
+#
+####################################################################
+
+CC := g++
+CFLAGS := -c 
+OFLAG := -o
+MDFLAG := -MMD
+PIC := -fPIC 
+SHARED := -shared
+DEBUG := -g
+AR_FLAGS := rvs
+AR := ar
+
+LD_FLAGS := -l
+
+COPY := cp
+COPY_DIR_FLAG := -rf
+
+C++11 := -std=c++11 
+C++14 := -std=c++14 
+
+OBJ_DIR := objs
+BIN_DIR := bin
+LIB_DIR := lib
+

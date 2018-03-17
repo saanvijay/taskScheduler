@@ -1,0 +1,27 @@
+####################################################################
+#
+# Makefile rules file, define all the functionalities
+#
+####################################################################
+include ./makefile.includes
+
+define copy_rule_body 
+	mkdir -p ${@D}
+	$(COPY) $(COPY_DIR_FLAG) $< $@
+endef
+
+define c_compile_rule_body 
+	$(CC) $(CFLAGS) $(OFLAG) $@ $<
+endef
+
+define cpp_compile_rule_body 
+	@echo " ------- $(notdir $<) ----> $(notdir $@) -----"
+	mkdir -p ${@D}
+	$(CC) $(CFLAGS) $(MDFLAG) $(OFLAG) $@ $<
+	@echo ''
+endef
+
+define python_compile_rule_body 
+	echo "yet to be done"
+endef
+
