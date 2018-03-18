@@ -44,10 +44,14 @@ timer->addTask(emails_task);
 
 timer->listAllTasks();
 
-timer->start("configure");
-timer->start("build");
-timer->start("test");
-timer->start("emails");
+timer->start_async("configure");
+timer->start_async("build");
+timer->start_async("test");
+timer->start_async("emails");
+//timer->start("configure");
+//timer->start("build");
+//timer->start("test");
+//timer->start("emails");
 //timer->start();
 
 timer->listAllTasks();

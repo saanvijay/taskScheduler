@@ -38,6 +38,7 @@ namespace vjp {
 			void start();
 			void listAllTasks(); 
 			void start(string taskName); 
+			void start_async(string taskName); 
 			void cancel(string taskName);
 			void addTask(timerTask task);
 			virtual ~Timer(); 

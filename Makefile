@@ -30,6 +30,11 @@ $(OBJ_DIR)/%.o : %.cpp
 
 .PHONY: clean
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR) $(EXE)
+	@echo "--------- Cleaning $(EXE) ---------"
+	rm -rf $(OBJ_DIR) 
+	rm -rf $(BIN_DIR) 
+	rm -rf $(EXE)
+	@echo "============== DONE ====================="
+	@echo ''
 
 -include $(DEPS)

@@ -64,6 +64,26 @@ void Timer::start(string taskName) {
 	//	  }
 }
 
+void Timer::start_async(string taskName) {
+	auto it = m_mapTaskList.find(taskName);
+	if (it != m_mapTaskList.end()) {
+		if((*it).second.getTaskState() == SCHEDULED) {	
+			runMethod rMethod = (*it).second.getRunMethod();
+			m_timerTask = (*it).second;
+			std::chrono::system_clock::time_point tasktime=  (*it).second.getTaskTime();
+			std::chrono::system_clock::time_point now =  std::chrono::system_clock::now();
+			std::chrono::duration<double, std::milli> elapsed = tasktime - now;
+
+			std::cout << "Statred " << (*it).second.getTaskName() << " ..."<<"\n";
+
+			// handle concurrency here
+			auto  result = std::async(std::launch::deferred, rMethod);
+			result.get();
+			(*it).second.setTaskState(FINISHED);
+		}
+	}
+}
+
 void Timer::cancel(string taskName) {
 	auto it = m_mapTaskList.find(taskName);
 	if (it != m_mapTaskList.end()) {
