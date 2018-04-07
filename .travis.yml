@@ -1,6 +1,8 @@
 language : 
-	cpp
-platform: 
-         -linux
+	c++
+platform:
+	- linux
+before_install : 
+	./testMakefile
 script : 
 	make
