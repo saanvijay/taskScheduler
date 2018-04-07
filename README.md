@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/saanvijay/taskScheduler.svg?branch=master)](https://travis-ci.org/saanvijay/taskScheduler)
+![Platforms](https://img.shields.io/badge/platform-linux-lightgray.svg)
+
 # taskScheduler
 Task scheduler, task should be executed at given time
 
