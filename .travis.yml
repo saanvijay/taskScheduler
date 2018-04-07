@@ -1,6 +1,6 @@
 language : 
-	c++
+	cpp
 platform: 
-         linux
+         -linux
 script : 
 	make
