@@ -1,8 +1,10 @@
+#######################################################################
 include ./makefile.rules
 
 
 SRCS := timer.cpp \
 	taskScheduler.cpp
+
 OBJS := $(patsubst %.cpp, objs/%.o, $(SRCS)) 
 EXE  := $(BIN_DIR)/taskScheduler
 
