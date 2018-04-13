@@ -1,6 +1,3 @@
-language : 
-	c++
-platform:
-	- linux
-script : 
-	make
+language : c++
+platform: linux
+script : make
