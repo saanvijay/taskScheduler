@@ -30,7 +30,7 @@ void Timer::listAllTasks() {
 		std::chrono::system_clock::time_point now =  task.second.getTaskTime();
 		std::time_t tsktime = std::chrono::system_clock::to_time_t(now);
 		std::cout << "TaskName : "<< task.second.getTaskName() 
-			<< " Scheduled at : "<< std::put_time(std::localtime(&tsktime), "%F %T") 
+			<< " Scheduled at : "<< put_time(std::localtime(&tsktime), "%F %T") 
 			<< " Status : " << task.second.getTaskState() << std::endl;
 	}
 
